@@ -25,18 +25,20 @@ const appLogger = new Logger('TypeOrmModule');
       inject: [ConfigService],
       useFactory: (config: ConfigService) => ({
         type: 'mysql',
-        host: config.get<string>('DB_HOST'),
-        port: config.get<number>('DB_PORT'),
-        username: config.get<string>('DB_USERNAME'),
-        password: config.get<string>('DB_PASSWORD'),
-        database: config.get<string>('DB_NAME'),
+        url: config.get<string>('DATABASE_URL'),
+        // host: config.get<string>('DB_HOST'),
+        // port: config.get<number>('DB_PORT'),
+        // username: config.get<string>('DB_USERNAME'),
+        // password: config.get<string>('DB_PASSWORD'),
+        // database: config.get<string>('DB_NAME'),
         autoLoadEntities: true,
         synchronize: true, 
         logging: true,
         afterInit: async () => {
-          const dbName = config.get<string>('DB_NAME');
-          const dbHost = config.get<string>('DB_HOST');
-          appLogger.log(`✅ Successfully connected to database: "${dbName}" at ${dbHost}`);
+          // const dbName = config.get<string>('DB_NAME');
+          // const dbHost = config.get<string>('DB_HOST');
+          // appLogger.log(`✅ Successfully connected to database: "${dbName}" at ${dbHost}`);
+          appLogger.log(`✅ Attempting connection via DATABASE_URL`);
         },
       }),
     }),

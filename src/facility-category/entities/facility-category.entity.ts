@@ -12,4 +12,7 @@ export class FacilityCategory extends BaseEntity {
 
     @OneToMany(() => Facility, (facility) => facility.category)
     facilities: Facility[];
+
+    @Column({type:'text', nullable: true})
+    remark: string
 }
