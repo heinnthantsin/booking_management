@@ -12,13 +12,13 @@ export abstract class BaseEntity extends TypeOrmBase {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @CreateDateColumn({ name: ' ' })
+  @CreateDateColumn()
   createdAt: Date;
 
-  @UpdateDateColumn({ name: 'updated_at', nullable: true })
+  @UpdateDateColumn({nullable: true })
   updatedAt?: Date;
 
-  @DeleteDateColumn({ name: 'deleted_at', nullable: true })
+  @DeleteDateColumn({ nullable: true })
   deletedAt?: Date;
 
   @ManyToOne(() => User, { nullable: true, onDelete: 'SET NULL' })
