@@ -14,7 +14,7 @@ export class Profile extends BaseEntity {
     description: string;
 
 
-    @OneToMany(() => Building, (building) => building.profileId)
+    @OneToMany(() => Building, (building) => building.owner)
     buildings: Building[];  
 
     @OneToMany(() => FacilityCategory, (facilityCategory) => facilityCategory.profile)
