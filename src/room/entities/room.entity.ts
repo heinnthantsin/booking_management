@@ -1,8 +1,9 @@
 import { Booking } from "src/booking/entities/booking.entity";
 import { Building } from "src/building/entities/building.entity";
 import { BaseEntity } from "src/common/entities/base.entity";
-import { Column, ManyToOne, OneToMany } from "typeorm";
+import { Column, Entity, ManyToOne } from "typeorm";
 
+@Entity('room')
 export class Room extends BaseEntity {
         
     @Column({type: 'int',nullable: true})

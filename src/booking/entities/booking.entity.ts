@@ -34,8 +34,8 @@ export class Booking extends BaseEntity {
     @Column({ type: 'int' })
     numberOfGuests: number
     
-    @Column({type : "string"})
-    phoneNumber: number
+    @Column({type : "text"})
+    phoneNumber: string
 
     @Column({type:'datetime'})
     startTime : Date
@@ -43,7 +43,7 @@ export class Booking extends BaseEntity {
     @Column({type:'datetime'})
     endTime : Date
 
-    @Column({ type: 'varchar', length: 50 })
+    @Column({ default:'pending'})
     status : string
 
     @ManyToMany(() => Facility, (facility) => facility.bookings)

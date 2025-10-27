@@ -1,8 +1,9 @@
+import { BaseEntity } from "src/common/entities/base.entity";
 import { Facility } from "src/facility/entities/facility.entity";
 import { Profile } from "src/profile/entities/profile.entity";
-import { BaseEntity, Column, Entity, ManyToOne, OneToMany } from "typeorm";
+import { Column, Entity, ManyToOne, OneToMany } from "typeorm";
 
-@Entity()
+@Entity('facility_category')
 export class FacilityCategory extends BaseEntity {
     @Column()
     name: string;

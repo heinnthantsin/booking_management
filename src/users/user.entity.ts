@@ -4,7 +4,7 @@ import { Booking } from 'src/booking/entities/booking.entity';
 import { Building } from 'src/building/entities/building.entity';
 import { Profile } from 'src/profile/entities/profile.entity';
 
-@Entity()
+@Entity('user')
 export class User extends BaseEntity {
   @Column()
   name: string;
@@ -24,6 +24,6 @@ export class User extends BaseEntity {
   @OneToMany(() => Building, (building) => building.owner)
   buildings: Building[];
 
-  @OneToMany(() => Profile, (profile) => profile.userId)
+  @OneToMany(() => Profile, (profile) => profile.user)
   profiles: Profile[];
 }
