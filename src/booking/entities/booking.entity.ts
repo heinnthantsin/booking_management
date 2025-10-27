@@ -46,8 +46,6 @@ export class Booking extends BaseEntity {
     @Column({ type: 'varchar', length: 50 })
     status : string
 
-    // @Column()
-    // facility_id : string[]
     @ManyToMany(() => Facility, (facility) => facility.bookings)
     facilities: Facility[];
 

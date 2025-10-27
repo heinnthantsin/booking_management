@@ -10,8 +10,11 @@ export class Facility extends BaseEntity {
     @ManyToOne(()=> FacilityCategory, (facilityCategory) => facilityCategory.facilities)
     category: FacilityCategory;
 
+    @Column({type: 'decimal', precision: 10, scale: 2, nullable: true})
+    cost: number;
+
     @Column()
-    description: string;
+    remark: string;
 
     @ManyToMany(() => Booking, (booking) => booking.facilities)
     bookings: Booking[];

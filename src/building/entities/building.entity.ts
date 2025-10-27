@@ -1,17 +1,42 @@
 import { BaseEntity } from "src/common/entities/base.entity";
 import { Profile } from "src/profile/entities/profile.entity";
-import { Column, ManyToOne } from "typeorm";
+import { Room } from "src/room/entities/room.entity";
+import { Column, ManyToOne, OneToMany } from "typeorm";
 
 export class Building extends BaseEntity {
-    @Column()
-    name: string;
+    @Column({type:"text"})
+    name:string;
 
-    @Column()
-    address: string;
+    @Column({type:"text"})
+    address:string;
 
-    @Column()
-    profileId: string;
+    @Column({type:"number",default:1})
+    totalFloor:number
+
+    @Column({type:'text',nullable:true})
+    description:string
+
+    @Column({type:'text'})
+    email:string
+
+    @Column({type:'text'})
+    phone:string
+
+    @Column({type:'text',default:'available'})
+    status:string
+
+    @Column({type:'text',nullable:true})
+    imageUrl:string[]
+
+    @Column({type:'int',nullable:true})
+    star:number
+
+    @OneToMany(()=>Room,(room)=>room.building)
+    rooms: Room[];
+
 
     @ManyToOne(() => Profile, (profile) => profile.buildings)
     owner:Profile
+
+
 }
